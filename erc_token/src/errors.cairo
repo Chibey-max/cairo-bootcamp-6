@@ -1,0 +1,17 @@
+pub mod Errors {
+    pub const ONLY_OWNER: felt252 = 'ONLY_OWNER';
+    pub const INVALID_LIMIT: felt252 = 'INVALID_LIMIT';
+    pub const TRANSFER_LIMIT_EXCEEDED: felt252 = 'TRANSFER_LIMIT_EXCEEDED';
+    pub const ZERO_OWNER: felt252 = 'ZERO_OWNER';
+    pub const ZERO_RECIPIENT: felt252 = 'ZERO_RECIPIENT';
+    pub const ZERO_ACCOUNT: felt252 = 'ZERO_ACCOUNT';
+    pub const ZERO_SPENDER: felt252 = 'ZERO_SPENDER';
+    pub const ZERO_AMOUNT: felt252 = 'ZERO_AMOUNT';
+    pub const APPROVE_TO_ZERO: felt252 = 'ERC20_APPROVE_TO_ZERO';
+    pub const TRANSFER_FROM_ZERO: felt252 = 'ERC20_TRANSFER_FROM_ZERO';
+    pub const TRANSFER_TO_ZERO: felt252 = 'ERC20_TRANSFER_TO_ZERO';
+    pub const BURN_FROM_ZERO: felt252 = 'ERC20_BURN_FROM_ZERO';
+    pub const MINT_TO_ZERO: felt252 = 'ERC20_MINT_TO_ZERO';
+    pub const INSUFFICIENT_BALANCE: felt252 = 'ERC20_INSUFFICIENT_BALANCE';
+    pub const INSUFFICIENT_ALLOWANCE: felt252 = 'ERC20_INSUFFICIENT_ALLOWANCE';
+}

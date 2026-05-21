@@ -22,11 +22,11 @@ fn main() {
     println!("Mul result of x & y is {}", mul_result);
     assert(mul_result == 10, 'invalid mul');
 
-    let div_result = div_num(10, 10);
+    let div_result = div_num(10, 0);
     match div_result {
         Result::Ok(value) => {
             println!("Div result of x & y is {}", value);
-            assert(value == 1, 'invalid div');
+            assert(value == 1, 'division by zero');
         },
         Result::Err(err) => {
             println!("division failed: {}", err);
@@ -37,6 +37,38 @@ fn main() {
 
 fn add_num(x: u8, y: u8) -> u8 {
     x + y
+}
+#[cfg(test)]
+mod tests {
+    use core::result::Result;
+    use super::{add_num, div_num, mul_num, sub_num};
+
+    #[test]
+    fn test_add_num() {
+        let result = add_num(5, 6);
+        assert(result == 11, 'invalid sum logic');
+    }
+    #[test]
+    fn test_sub_num() {
+        let result = sub_num(3, 1);
+        match result {
+            Result::Ok(value) => assert(value == 2, 'invalid subtraction logic'),
+            Result::Err(_) => assert(false, 'unexpected error in sub_num'),
+        }
+    }
+    #[test]
+    fn test_mul_num() {
+        let result = mul_num(2, 2);
+        assert(result == 4, 'invalid multiplication logic');
+    }
+    #[test]
+    fn test_div_num() {
+        let result = div_num(6, 2);
+        match result {
+            Result::Ok(value) => assert(value == 3, 'invalid division logic'),
+            Result::Err(_) => assert(false, 'unexpected error in div_num'),
+        }
+    }
 }
 
 fn sub_num(x: u8, y: u8) -> Result<u8, felt252> {
